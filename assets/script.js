@@ -181,4 +181,29 @@ var loadCities = function() {
 
     for (var i = 0; i < cityArr.length; i++) {
         var cityListItem = document.createElement('button');
-  
+        cityListItem.setAttribute('type', 'button');
+        cityListItem.className = 'list-group-item';
+        cityListItem.setAttribute('value', cityArr[i]);
+        cityListItem.textContent = cityArr[i];
+        cityListUl.prepend(cityListItem);
+    }
+
+    var cityList = document.querySelector('.city-list');
+    cityList.addEventListener('click', selectRecent)
+}
+
+var selectRecent = function(event) {
+    var clickedCity = event.target.getAttribute('value');
+
+    getCoords(clickedCity);
+}
+
+loadCities();
+cityBtn.addEventListener('click', formHandler)
+
+// searches for city on ENTER key
+cityInput.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+        cityBtn.click();
+    }
+});
