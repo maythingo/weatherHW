@@ -1,2 +1,2 @@
 # weatherHW
-![](images/weatherDashboard.png)
+![](assets/images/weatherDashboard.png)
